@@ -14,11 +14,12 @@ import gpconfig
 
 np.set_printoptions(suppress=True)
 
+nsevar = gpconfig.noise_coeff
+l = gpconfig.l
+sigma_f = gpconfig.sigma_f
+
 
 def drawdatafromgp(num_obs):
-    nsevar = gpconfig.noise_coeff
-    l = gpconfig.l
-    sigma_f = gpconfig.sigma_f
     
     X = np.arange(0, num_obs).reshape((-1,1))
     
@@ -52,3 +53,15 @@ def drawdatafromgp(num_obs):
     print('mu_train shape: ', mu_train.shape)
     
     return X_train, Y_train
+
+def drawmatrixfromgp(num_obs, num_neurons, kernels):
+    
+    X = np.zeros((num_neurons, num_obs))
+    mu = np.zeros((num_obs,))
+    
+#    nsevar = 0.0
+    
+    for i, k in enumerate(kernels):
+        X[i,:] = np.random.multivariate_normal(mu.ravel(), k)
+    
+    return X

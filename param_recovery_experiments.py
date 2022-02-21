@@ -27,7 +27,7 @@ np.set_printoptions(suppress=True)
 
 #%% Get training data
 
-num_obs = 500
+num_obs = 1000
 noise_coeff = gpconfig.noise_coeff
 
 X_train, Y_train = drawdatafromgp(num_obs)
@@ -36,10 +36,10 @@ X_train, Y_train = drawdatafromgp(num_obs)
 
 theta = np.array([10.0, 10.0])
 ans_normal = ll_fn(X_train, Y_train, noise_coeff, which='normal')(theta)
-ans_fourier = ll_fn(X_train, Y_train, noise_coeff, which='fourier')(theta)
+# ans_fourier = ll_fn(X_train, Y_train, noise_coeff, which='fourier')(theta)
 ans_fourier_implicit = ll_fn(X_train, Y_train, noise_coeff, which='implicit')(theta)
 print('ans normal: ', ans_normal)
-print('ans fourier: ', ans_fourier)
+# print('ans fourier: ', ans_fourier)
 print('ans fourier implicit: ', ans_fourier_implicit)
 
 #%% Normal LL param recovery without noise

@@ -193,7 +193,7 @@ def ll_fn(X_train, Y_train, noise=None, which='normal', debug=True):
             print('nx: ', nx)
             print('wvec shape: ', wvec.shape)
             print('wwnrm shape: ', wwnrm.shape)
-            # print('wvec: ', wvec)
+            print('wvec: ', wvec)
             print('term1: ', term1)
             print('term2: ', term2)
             print('term3: ', term3)
